@@ -87,8 +87,8 @@ class semidual(nn.Module):
     """    
     def __init__(self, inputy, device=DEVICE, usekeops=False):
         super(semidual, self).__init__()        
-        print(f'INPUTY SHAPE: {(inputy.shape[0])}')
-        self.psi = nn.Parameter(torch.zeros((inputy.shape[0],1), device=device))
+        # print(f'INPUTY SHAPE: {(inputy.shape[0])}')
+        self.psi = nn.Parameter(torch.zeros(inputy.shape[0], device=device))
         # self.psi = nn.Parameter(torch.zeros(inputy.shape, device=device))
         self.yt = inputy.transpose(1,0)
         self.usekeops = usekeops
