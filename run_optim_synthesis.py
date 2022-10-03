@@ -17,6 +17,8 @@ args = parser.parse_args()
 
 synth_img = wgenpatex.optim_synthesis(args)
 
+save_file = f'synth_{args.target_image_path}'
+
 # plot and save the synthesized texture 
 wgenpatex.imshow(synth_img)
-wgenpatex.imsave('synthesized.png', synth_img)
+wgenpatex.imsave(save_file, synth_img)
