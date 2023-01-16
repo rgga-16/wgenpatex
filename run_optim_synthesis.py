@@ -22,14 +22,9 @@ synth_img = wgenpatex.optim_synthesis(args)
 save_file = f'synth_{args.target_image_path}'
 
 # plot and save the synthesized texture 
-<<<<<<< HEAD
 # wgenpatex.imshow(synth_img)
 
 filename = os.path.basename(args.target_image_path)
 filename_no_ext = os.path.splitext(filename)[0]
 
 wgenpatex.imsave(os.path.join(args.out_dir,f'{filename_no_ext}.png'), synth_img)
-=======
-wgenpatex.imshow(synth_img)
-wgenpatex.imsave(save_file, synth_img)
->>>>>>> 96e0d5d5ccc6c87baebd74a378f7a29374e749fa
