@@ -1,8 +1,10 @@
 import argparse
 import wgenpatex
+import os 
 
 parser = argparse.ArgumentParser()
 parser.add_argument('target_image_path', help='paths of target texture image')
+parser.add_argument('out_dir', help='directory to save the generated texture image')
 parser.add_argument('-s', '--size', default=None, help="size of synthetized texture [nrow, ncol] (default: target texture size)")
 parser.add_argument('-w', '--patch_size', type=int,default=4, help="patch size (default: 4)")
 parser.add_argument('-nmax', '--n_iter_max', type=int, default=500, help="max iterations of the algorithm(default: 500)")
@@ -18,5 +20,9 @@ args = parser.parse_args()
 synth_img = wgenpatex.optim_synthesis(args)
 
 # plot and save the synthesized texture 
-wgenpatex.imshow(synth_img)
-wgenpatex.imsave('synthesized.png', synth_img)
+# wgenpatex.imshow(synth_img)
+
+filename = os.path.basename(args.target_image_path)
+filename_no_ext = os.path.splitext(filename)[0]
+
+wgenpatex.imsave(os.path.join(args.out_dir,f'{filename_no_ext}.png'), synth_img)
